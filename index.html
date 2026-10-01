@@ -85,11 +85,17 @@
             font-style: italic;
         }
 
+        .project .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 16px;
+        }
+
         .project h2 {
             font-family: 'Fraunces', serif;
             font-size: 1.8rem;
             font-weight: 400;
-            margin-bottom: 16px;
             letter-spacing: -0.01em;
         }
 
@@ -157,6 +163,9 @@
         .project .tech {
             font-family: 'Fraunces', serif;
             font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text2);
+            margin-bottom: 20px;
         }
 
         /* Footer */
@@ -200,8 +209,11 @@
     <section class="projects">
 
         <div class="project">
-            <div class="project-num">01 — Completado</div>
-            <h2>TrendHub</h2>
+            <div class="project-header">
+                <h2>TrendHub</h2>
+                <a href="https://github.com/whj2006/trendhub" target="_blank">Ver código →</a>
+            </div>
+            <div class="tech">HTML · CSS · JavaScript · i18n</div>
             <p class="desc">Plataforma de recomendaciones de música, juegos, series, anime y películas. Con buscador, filtros por género y año, y soporte bilingüe ES/EN.</p>
             <div class="carousel-wrap">
                 <button class="arrow prev" onclick="slide(-1)">←</button>
@@ -214,30 +226,24 @@
                 </div>
                 <button class="arrow next" onclick="slide(1)">→</button>
             </div>
-            <div class="meta">
-                <span class="tech">HTML · CSS · JavaScript · i18n</span>
-                <a href="https://github.com/whj2006/trendhub" target="_blank">Ver código</a>
-            </div>
         </div>
 
         <div class="project">
-            <div class="project-num">02 — Completado</div>
-            <h2>Control de Tardanzas</h2>
+            <div class="project-header">
+                <h2>Control de Tardanzas</h2>
+                <a href="https://github.com/whj2006/Sistema_control_tardanza" target="_blank">Ver código →</a>
+            </div>
+            <div class="tech">Java 17 · Swing · MariaDB · Maven · CI/CD</div>
             <p class="desc">Aplicación de escritorio para institutos: registro de retrasos, gestión de alumnos y cursos, envío de avisos por email a las familias. Instalador EXE incluido.</p>
-            <div class="meta">
-                <span class="tech">Java 17 · Swing · MariaDB · Maven · CI/CD</span>
-                <a href="https://github.com/whj2006/Sistema_control_tardanza" target="_blank">Ver código</a>
-            </div>
         </div>
 
         <div class="project">
-            <div class="project-num">03 — En desarrollo</div>
-            <h2>Tower Defense</h2>
-            <p class="desc">Juego de tower defense en Java como proyecto personal para profundizar en programación orientada a objetos y gráficos 2D.</p>
-            <div class="meta">
-                <span class="tech">Java · POO · Gráficos 2D</span>
+            <div class="project-header">
+                <h2>Tower Defense</h2>
                 <span>Próximamente</span>
             </div>
+            <div class="tech">Java · POO · Gráficos 2D</div>
+            <p class="desc">Juego de tower defense en Java como proyecto personal para profundizar en programación orientada a objetos y gráficos 2D.</p>
         </div>
 
     </section>
