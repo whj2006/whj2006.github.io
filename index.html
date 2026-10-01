@@ -236,6 +236,16 @@
             </div>
             <div class="tech">Java 17 · Swing · MariaDB · Maven · CI/CD</div>
             <p class="desc">Aplicación de escritorio para institutos: registro de retrasos, gestión de alumnos y cursos, envío de avisos por email a las familias. Instalador EXE incluido.</p>
+            <div class="carousel-wrap">
+                <button class="arrow prev" onclick="slide2(-1)">←</button>
+                <div class="carousel" id="carousel2">
+                    <img src="t1.jpg" alt="Fichar">
+                    <img src="t2.jpg" alt="Historial">
+                    <img src="t3.jpg" alt="Ranking">
+                    <img src="t4.jpg" alt="Cursos y alumnos">
+                </div>
+                <button class="arrow next" onclick="slide2(1)">→</button>
+            </div>
         </div>
 
         <div class="project">
@@ -261,8 +271,10 @@
 
 <script>
 function slide(dir) {
-    const c = document.getElementById('carousel');
-    c.scrollBy({ left: dir * c.clientWidth * 0.6, behavior: 'smooth' });
+    document.getElementById('carousel').scrollBy({ left: dir * 270, behavior: 'smooth' });
+}
+function slide2(dir) {
+    document.getElementById('carousel2').scrollBy({ left: dir * 270, behavior: 'smooth' });
 }
 </script>
 
