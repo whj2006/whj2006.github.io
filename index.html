@@ -99,21 +99,52 @@
             font-size: 1rem;
         }
 
+        .project .carousel-wrap {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
         .project .carousel {
             display: flex;
             gap: 12px;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            margin-bottom: 32px;
-            padding-bottom: 8px;
+            padding-bottom: 0;
+            scrollbar-width: none;
         }
 
+        .project .carousel::-webkit-scrollbar { display: none; }
+
         .project .carousel img {
-            flex: 0 0 45%;
+            flex: 0 0 31%;
             scroll-snap-align: start;
             border-radius: 4px;
             border: 1px solid var(--border);
         }
+
+        .carousel-wrap .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s;
+            border: none;
+            font-size: 18px;
+            z-index: 10;
+        }
+
+        .carousel-wrap:hover .arrow { opacity: 1; }
+        .carousel-wrap .arrow.prev { left: -18px; }
+        .carousel-wrap .arrow.next { right: -18px; }
 
         .project .meta {
             display: flex;
@@ -172,12 +203,16 @@
             <div class="project-num">01 — Completado</div>
             <h2>TrendHub</h2>
             <p class="desc">Plataforma de recomendaciones de música, juegos, series, anime y películas. Con buscador, filtros por género y año, y soporte bilingüe ES/EN.</p>
-            <div class="carousel">
-                <img src="shot1.jpg" alt="TrendHub - Principal">
-                <img src="shot2.jpg" alt="TrendHub - Juegos">
-                <img src="shot3.jpg" alt="TrendHub - Música">
-                <img src="shot4.jpg" alt="TrendHub - Películas">
-                <img src="shot5.jpg" alt="TrendHub - Sugerencias">
+            <div class="carousel-wrap">
+                <button class="arrow prev" onclick="slide(-1)">←</button>
+                <div class="carousel" id="carousel">
+                    <img src="shot1.jpg" alt="Página principal">
+                    <img src="shot2.jpg" alt="Juegos">
+                    <img src="shot3.jpg" alt="Música">
+                    <img src="shot4.jpg" alt="Películas">
+                    <img src="shot5.jpg" alt="Sugerencias">
+                </div>
+                <button class="arrow next" onclick="slide(1)">→</button>
             </div>
             <div class="meta">
                 <span class="tech">HTML · CSS · JavaScript · i18n</span>
@@ -216,6 +251,13 @@
     </footer>
 
 </div>
+
+<script>
+function slide(dir) {
+    const c = document.getElementById('carousel');
+    c.scrollBy({ left: dir * c.clientWidth * 0.6, behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>
