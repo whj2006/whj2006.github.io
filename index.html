@@ -32,7 +32,6 @@
 
         a { color: inherit; text-decoration: none; }
 
-        /* Background glow */
         body::before {
             content: '';
             position: fixed;
@@ -54,7 +53,7 @@
             z-index: 1;
         }
 
-        /* === Hero === */
+        /* Hero */
         .hero {
             padding: 100px 0 60px;
         }
@@ -85,39 +84,10 @@
             font-size: 1.15rem;
             color: var(--text2);
             max-width: 520px;
-            margin-bottom: 32px;
             font-weight: 400;
         }
 
-        .hero .links {
-            display: flex;
-            gap: 12px;
-        }
-
-        .hero .links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-        }
-        .btn-primary:hover { background: #5a4bd1; transform: translateY(-1px); }
-
-        .btn-ghost {
-            border: 1px solid var(--border);
-            color: var(--text2);
-        }
-        .btn-ghost:hover { border-color: var(--accent); color: var(--text); }
-
-        /* === Section === */
+        /* Section */
         section {
             padding: 40px 0;
         }
@@ -131,7 +101,7 @@
             margin-bottom: 24px;
         }
 
-        /* === Projects === */
+        /* Project */
         .project {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -143,7 +113,6 @@
 
         .project:hover {
             border-color: #353550;
-            transform: translateY(-2px);
         }
 
         .project-top {
@@ -173,6 +142,22 @@
             color: var(--text2);
             font-size: 0.95rem;
             margin-bottom: 16px;
+        }
+
+        /* Screenshots */
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .screenshots img {
+            width: 100%;
+            aspect-ratio: 2/3;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border);
         }
 
         .tech-stack {
@@ -213,12 +198,40 @@
         .project .view-link:hover { text-decoration: underline; }
         .project .view-link.disabled { color: var(--text2); pointer-events: none; }
 
-        /* === Footer === */
+        /* Footer */
         footer {
             margin-top: 60px;
-            padding: 30px 0;
+            padding: 40px 0;
             border-top: 1px solid var(--border);
             text-align: center;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        footer .footer-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            color: var(--text2);
+            transition: all 0.2s;
+        }
+
+        footer .footer-links a:hover {
+            border-color: var(--accent);
+            color: var(--text);
+        }
+
+        footer .copyright {
             color: var(--text2);
             font-size: 0.85rem;
         }
@@ -233,10 +246,6 @@
         <div class="greeting">// hola, soy</div>
         <h1>Hejun <span class="gradient">Wang</span></h1>
         <p class="tagline">Estudiante de Desarrollo de Aplicaciones. Construyo aplicaciones de escritorio en Java y webs con HTML, CSS y JavaScript.</p>
-        <div class="links">
-            <a href="https://github.com/whj2006" target="_blank" class="btn-primary">GitHub →</a>
-            <a href="mailto:whj2006@users.noreply.github.com" class="btn-ghost">Email</a>
-        </div>
     </div>
 
     <!-- Projects -->
@@ -250,6 +259,11 @@
                 <span class="status done">COMPLETADO</span>
             </div>
             <p class="desc">Web de recomendaciones de música, juegos, series, anime y películas. Con buscador, filtros por género y año, y soporte bilingüe ES/EN.</p>
+            <div class="screenshots">
+                <img src="https://raw.githubusercontent.com/whj2006/trendhub/main/web/img/musica/m1.jpg" alt="TrendHub - Metallica">
+                <img src="https://raw.githubusercontent.com/whj2006/trendhub/main/web/img/juegos/j5.jpg" alt="TrendHub - Elden Ring">
+                <img src="https://raw.githubusercontent.com/whj2006/trendhub/main/web/img/pelis/vp5.jpg" alt="TrendHub - Shawshank">
+            </div>
             <div class="tech-stack">
                 <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>i18n</span>
             </div>
@@ -287,7 +301,11 @@
     </section>
 
     <footer>
-        © 2026 Hejun Wang
+        <div class="footer-links">
+            <a href="https://github.com/whj2006" target="_blank">GitHub →</a>
+            <a href="mailto:whj2006@users.noreply.github.com">Email</a>
+        </div>
+        <p class="copyright">© 2026 Hejun Wang</p>
     </footer>
 
 </div>
