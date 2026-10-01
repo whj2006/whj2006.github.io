@@ -99,14 +99,21 @@
             font-size: 1rem;
         }
 
-        .project img {
-            width: 100%;
-            border-radius: 4px;
-            margin-bottom: 12px;
-            border: 1px solid var(--border);
+        .project .carousel {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            margin-bottom: 32px;
+            padding-bottom: 8px;
         }
 
-        .project img:last-of-type { margin-bottom: 32px; }
+        .project .carousel img {
+            flex: 0 0 100%;
+            scroll-snap-align: start;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
 
         .project .meta {
             display: flex;
@@ -166,8 +173,13 @@
             <div class="project-num">01 — Completado</div>
             <h2>TrendHub</h2>
             <p class="desc">Plataforma de recomendaciones de música, juegos, series, anime y películas. Con buscador, filtros por género y año, y soporte bilingüe ES/EN.</p>
-            <img src="trendhub-home-clean.png" alt="TrendHub - Página principal">
-            <img src="trendhub-games-clean.png" alt="TrendHub - Juegos">
+            <div class="carousel">
+                <img src="shot1.jpg" alt="TrendHub - Principal">
+                <img src="shot2.jpg" alt="TrendHub - Juegos">
+                <img src="shot3.jpg" alt="TrendHub - Música">
+                <img src="shot4.jpg" alt="TrendHub - Películas">
+                <img src="shot5.jpg" alt="TrendHub - Sugerencias">
+            </div>
             <div class="meta">
                 <span class="tech">HTML · CSS · JavaScript · i18n</span>
                 <a href="https://github.com/whj2006/trendhub" target="_blank">Ver código</a>
