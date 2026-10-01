@@ -29,38 +29,29 @@
         a:hover { border-bottom-color: var(--text); }
 
         .container {
-            max-width: 680px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 32px;
         }
 
-        /* Nav */
-        nav {
-            padding: 32px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            color: var(--text2);
-        }
-
-        nav .name { color: var(--text); font-weight: 500; }
-        nav .right { display: flex; gap: 24px; }
-        nav a { border: none; color: var(--text2); }
-        nav a:hover { color: var(--text); }
-
         /* Hero */
         .hero {
-            padding: 120px 0 100px;
+            padding: 100px 0 80px;
+        }
+
+        .hero .name {
+            font-size: 0.9rem;
+            color: var(--text2);
+            margin-bottom: 24px;
         }
 
         .hero h1 {
             font-family: 'Fraunces', serif;
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 300;
             line-height: 1.2;
             letter-spacing: -0.01em;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .hero h1 em {
@@ -69,9 +60,9 @@
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--text2);
-            max-width: 440px;
+            max-width: 520px;
         }
 
         /* Projects */
@@ -132,8 +123,22 @@
 
         /* Footer */
         footer {
-            padding: 48px 0;
+            padding: 60px 0;
             text-align: center;
+        }
+
+        footer .links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+        }
+
+        footer .links a {
+            font-size: 0.95rem;
+        }
+
+        footer .copyright {
             color: var(--text2);
             font-size: 0.85rem;
         }
@@ -149,17 +154,10 @@
 
 <div class="container">
 
-    <nav>
-        <div class="name">HW</div>
-        <div class="right">
-            <a href="https://github.com/whj2006" target="_blank">GitHub</a>
-            <a href="mailto:whj2006@users.noreply.github.com">Email</a>
-        </div>
-    </nav>
-
     <div class="hero">
+        <div class="name">Hejun Wang</div>
         <h1>Desarrollo aplicaciones que <em>resuelven problemas</em> reales.</h1>
-        <p>Soy Hejun, estudiante de Desarrollo de Aplicaciones. Trabajo con Java para escritorio y HTML, CSS, JavaScript para web.</p>
+        <p>Estudiante de Desarrollo de Aplicaciones. Trabajo con Java para escritorio y HTML, CSS, JavaScript para web.</p>
     </div>
 
     <section class="projects">
@@ -199,7 +197,11 @@
     </section>
 
     <footer>
-        © 2026 Hejun Wang
+        <div class="links">
+            <a href="https://github.com/whj2006" target="_blank">GitHub</a>
+            <a href="mailto:whj2006@users.noreply.github.com">Email</a>
+        </div>
+        <p class="copyright">© 2026 Hejun Wang</p>
     </footer>
 
 </div>
