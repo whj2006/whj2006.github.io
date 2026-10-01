@@ -3,235 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hejun Wang — Desarrollador</title>
+    <title>Hejun Wang</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>H</text></svg>">
+    <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-
-        :root {
-            --bg: #0a0a0f;
-            --surface: #12121a;
-            --surface2: #1a1a25;
-            --border: #252535;
-            --text: #e8e8ed;
-            --text2: #8b8b9e;
-            --accent: #6c5ce7;
-            --accent2: #00d2ff;
-            --green: #00b894;
-            --amber: #fdcb6e;
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+            background: #faf9f7;
+            color: #1a1a1a;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        a { color: inherit; text-decoration: none; }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(108,92,231,0.08) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
+        a { color: #2d5a3d; text-decoration: underline; text-underline-offset: 3px; }
+        a:hover { opacity: 0.7; }
 
         .container {
-            max-width: 900px;
+            max-width: 720px;
             margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
+            padding: 0 32px;
         }
 
         /* Hero */
-        .hero {
+        header {
             padding: 100px 0 60px;
+            border-bottom: 1px solid #e5e3de;
         }
 
-        .hero .greeting {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--accent);
-            margin-bottom: 16px;
+        header .name {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 24px;
+            font-weight: 500;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
             line-height: 1.1;
+            letter-spacing: -0.02em;
             margin-bottom: 20px;
         }
 
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        header p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 480px;
         }
 
-        .hero .tagline {
-            font-size: 1.15rem;
-            color: var(--text2);
-            max-width: 520px;
-            font-weight: 400;
+        /* Projects */
+        .projects {
+            padding: 60px 0;
         }
 
-        /* Section */
-        section {
-            padding: 40px 0;
-        }
-
-        .section-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--text2);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 24px;
-        }
-
-        /* Project */
         .project {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 28px;
-            margin-bottom: 16px;
-            transition: all 0.2s;
+            padding: 40px 0;
+            border-bottom: 1px solid #e5e3de;
         }
 
-        .project:hover {
-            border-color: #353550;
-        }
+        .project:last-child { border-bottom: none; }
 
-        .project-top {
+        .project-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: baseline;
             margin-bottom: 12px;
         }
 
-        .project h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
+        .project h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
             letter-spacing: -0.01em;
         }
 
-        .status {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            white-space: nowrap;
+        .project .status {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: 500;
         }
-        .status.done { background: rgba(0,184,148,0.12); color: var(--green); }
-        .status.wip { background: rgba(253,203,110,0.12); color: var(--amber); }
+
+        .project .status.done { color: #2d5a3d; }
+        .project .status.wip { color: #b8860b; }
 
         .project .desc {
-            color: var(--text2);
-            font-size: 0.95rem;
-            margin-bottom: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1rem;
         }
 
-        /* Screenshots */
-        .screenshots {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-
-        .screenshots img {
+        .project img {
             width: 100%;
-            border-radius: 8px;
-            border: 1px solid var(--border);
+            border-radius: 6px;
+            border: 1px solid #e5e3de;
+            margin-bottom: 20px;
         }
 
-        .tech-stack {
+        .project .meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 16px;
-        }
-
-        .tech-stack span {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text2);
-        }
-
-        .project .learn {
+            gap: 16px;
             font-size: 0.88rem;
-            color: var(--text2);
-            border-top: 1px solid var(--border);
-            padding-top: 14px;
-            margin-bottom: 14px;
+            color: #666;
         }
 
-        .project .learn strong {
-            color: var(--text);
+        .project .meta strong {
+            color: #1a1a1a;
             font-weight: 500;
         }
-
-        .project .view-link {
-            font-size: 0.88rem;
-            font-weight: 500;
-            color: var(--accent);
-        }
-        .project .view-link:hover { text-decoration: underline; }
-        .project .view-link.disabled { color: var(--text2); pointer-events: none; }
 
         /* Footer */
         footer {
-            margin-top: 60px;
             padding: 40px 0;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        footer .footer-links {
+            border-top: 1px solid #e5e3de;
             display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        footer .footer-links a {
-            display: inline-flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 6px;
-            padding: 10px 20px;
-            border-radius: 8px;
             font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid var(--border);
-            color: var(--text2);
-            transition: all 0.2s;
+            color: #666;
         }
 
-        footer .footer-links a:hover {
-            border-color: var(--accent);
-            color: var(--text);
+        footer .links {
+            display: flex;
+            gap: 20px;
         }
 
-        footer .copyright {
-            color: var(--text2);
-            font-size: 0.85rem;
+        @media (max-width: 600px) {
+            header { padding: 60px 0 40px; }
+            header h1 { font-size: 2rem; }
+            .project-header { flex-direction: column; gap: 4px; }
+            footer { flex-direction: column; gap: 16px; text-align: center; }
         }
     </style>
 </head>
@@ -239,70 +141,62 @@
 
 <div class="container">
 
-    <!-- Hero -->
-    <div class="hero">
-        <div class="greeting">// hola, soy</div>
-        <h1>Hejun <span class="gradient">Wang</span></h1>
-        <p class="tagline">Estudiante de Desarrollo de Aplicaciones. Construyo aplicaciones de escritorio en Java y webs con HTML, CSS y JavaScript.</p>
-    </div>
+    <header>
+        <div class="name">Hejun Wang</div>
+        <h1>Estudiante de Desarrollo de Aplicaciones.</h1>
+        <p>Construyo aplicaciones de escritorio en Java y webs con HTML, CSS y JavaScript.</p>
+    </header>
 
-    <!-- Projects -->
-    <section>
-        <div class="section-label">// proyectos</div>
+    <section class="projects">
 
-        <!-- TrendHub -->
         <div class="project">
-            <div class="project-top">
-                <h3>TrendHub</h3>
-                <span class="status done">COMPLETADO</span>
+            <div class="project-header">
+                <h2>TrendHub</h2>
+                <span class="status done">Completado</span>
             </div>
-            <p class="desc">Web de recomendaciones de música, juegos, series, anime y películas. Con buscador, filtros por género y año, y soporte bilingüe ES/EN.</p>
-            <div class="screenshots">
-                <img src="trendhub-home-clean.png" alt="TrendHub - Página principal">
-                <img src="trendhub-games-clean.png" alt="TrendHub - Juegos">
+            <p class="desc">Web de recomendaciones de música, juegos, series, anime y películas. Buscador, filtros por género y año, y soporte bilingüe ES/EN.</p>
+            <img src="trendhub-home-clean.png" alt="TrendHub - Página principal">
+            <img src="trendhub-games-clean.png" alt="TrendHub - Juegos">
+            <div class="meta">
+                <span><strong>Tecnologías:</strong> HTML, CSS, JavaScript, i18n</span>
+                <span><strong>Aprendizaje:</strong> CSS Grid, DOM, responsive, internacionalización</span>
             </div>
-            <div class="tech-stack">
-                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>i18n</span>
-            </div>
-            <p class="learn"><strong>Qué aprendí:</strong> Maquetación con CSS Grid, manipulación del DOM, diseño responsive y un sistema de internacionalización construido desde cero.</p>
-            <a href="https://github.com/whj2006/trendhub" target="_blank" class="view-link">Ver código →</a>
+            <p style="margin-top:12px;"><a href="https://github.com/whj2006/trendhub" target="_blank">Ver código en GitHub</a></p>
         </div>
 
-        <!-- Control de Tardanzas -->
         <div class="project">
-            <div class="project-top">
-                <h3>Control de Tardanzas</h3>
-                <span class="status done">COMPLETADO</span>
+            <div class="project-header">
+                <h2>Control de Tardanzas</h2>
+                <span class="status done">Completado</span>
             </div>
-            <p class="desc">Aplicación de escritorio para institutos: registro de retrasos, gestión de alumnos y cursos, envío de avisos por email a las familias, con instalador EXE incluido.</p>
-            <div class="tech-stack">
-                <span>Java 17</span><span>Swing</span><span>MariaDB</span><span>Maven</span><span>GitHub Actions</span>
+            <p class="desc">Aplicación de escritorio para institutos: registro de retrasos, gestión de alumnos y cursos, envío de avisos por email a las familias. Instalador EXE incluido.</p>
+            <div class="meta">
+                <span><strong>Tecnologías:</strong> Java 17, Swing, MariaDB, Maven, GitHub Actions</span>
+                <span><strong>Aprendizaje:</strong> Escritorio, SQL, SMTP, CI/CD</span>
             </div>
-            <p class="learn"><strong>Qué aprendí:</strong> Desarrollo de escritorio con Swing, diseño de esquema SQL (tablas, vistas, procedimientos almacenados), integración SMTP y CI/CD con GitHub Actions para generar instaladores automáticamente.</p>
-            <a href="https://github.com/whj2006/Sistema_control_tardanza" target="_blank" class="view-link">Ver código →</a>
+            <p style="margin-top:12px;"><a href="https://github.com/whj2006/Sistema_control_tardanza" target="_blank">Ver código en GitHub</a></p>
         </div>
 
-        <!-- Tower Defense -->
         <div class="project">
-            <div class="project-top">
-                <h3>Tower Defense</h3>
-                <span class="status wip">EN DESARROLLO</span>
+            <div class="project-header">
+                <h2>Tower Defense</h2>
+                <span class="status wip">En desarrollo</span>
             </div>
             <p class="desc">Juego de tower defense en Java como proyecto personal para profundizar en POO y gráficos 2D.</p>
-            <div class="tech-stack">
-                <span>Java</span><span>POO</span><span>Gráficos 2D</span>
+            <div class="meta">
+                <span><strong>Tecnologías:</strong> Java, POO, Gráficos 2D</span>
+                <span><strong>Aprendizaje:</strong> Bucle de juego, colisiones, pathfinding</span>
             </div>
-            <p class="learn"><strong>Qué estoy aprendiendo:</strong> Bucle de juego, detección de colisiones, gestión de estados, pathfinding y renderizado por canvas.</p>
-            <a class="view-link disabled">Próximamente →</a>
         </div>
+
     </section>
 
     <footer>
-        <div class="footer-links">
-            <a href="https://github.com/whj2006" target="_blank">GitHub →</a>
+        <span>© 2026 Hejun Wang</span>
+        <div class="links">
+            <a href="https://github.com/whj2006" target="_blank">GitHub</a>
             <a href="mailto:whj2006@users.noreply.github.com">Email</a>
         </div>
-        <p class="copyright">© 2026 Hejun Wang</p>
     </footer>
 
 </div>
