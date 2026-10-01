@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hejun Wang - Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        a { color: #e94560; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .hero h1 span { color: #e94560; }
+        .hero p {
+            font-size: 1.15rem;
+            color: #999;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .hero .social {
+            margin-top: 25px;
+        }
+        .hero .social a {
+            display: inline-block;
+            margin: 0 8px;
+            padding: 8px 20px;
+            border: 1px solid #e94560;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .hero .social a:hover {
+            background: #e94560;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Projects */
+        .projects {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 20px 60px;
+        }
+        .projects h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+        .projects h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #e94560;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #1a1a2e;
+            border-radius: 15px;
+            padding: 28px;
+            border: 1px solid #2a2a4a;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #e94560;
+        }
+        .card .badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        .badge.done { background: #1e4620; color: #4ade80; }
+        .badge.wip { background: #422006; color: #fbbf24; }
+
+        .card h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .card .problem {
+            color: #aaa;
+            font-size: 0.92rem;
+            margin-bottom: 15px;
+        }
+        .card .tech {
+            margin-bottom: 15px;
+        }
+        .card .tech span {
+            display: inline-block;
+            padding: 3px 10px;
+            margin: 0 5px 5px 0;
+            background: #2a2a4a;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            color: #bbb;
+        }
+        .card .learn {
+            font-size: 0.88rem;
+            color: #888;
+            border-top: 1px solid #2a2a4a;
+            padding-top: 12px;
+            margin-top: 5px;
+        }
+        .card .learn strong { color: #ccc; }
+        .card .link {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #555;
+            font-size: 0.85rem;
+            border-top: 1px solid #1a1a2e;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>Hejun <span>Wang</span></h1>
+        <p>Estudiante de Desarrollo de Aplicaciones — me gusta construir cosas útiles, tanto para web como de escritorio.</p>
+        <div class="social">
+            <a href="https://github.com/whj2006" target="_blank">GitHub</a>
+            <a href="mailto:whj2006@users.noreply.github.com">Email</a>
+        </div>
+    </section>
+
+    <section class="projects">
+        <h2>Proyectos</h2>
+        <div class="grid">
+
+            <!-- TrendHub -->
+            <div class="card">
+                <span class="badge done">Completado</span>
+                <h3>TrendHub</h3>
+                <p class="problem">Plataforma de recomendaciones de música, juegos, series, anime y películas. Buscador, filtros por género y año, y soporte bilingüe ES/EN.</p>
+                <div class="tech">
+                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>i18n</span>
+                </div>
+                <p class="learn"><strong>Qué aprendí:</strong> Maquetación con CSS Grid, manipulación del DOM, diseño responsive y sistema de internacionalización desde cero.</p>
+                <a class="link" href="https://github.com/whj2006/trendhub" target="_blank">Ver código →</a>
+            </div>
+
+            <!-- Control de Tardanzas -->
+            <div class="card">
+                <span class="badge done">Completado</span>
+                <h3>Control de Tardanzas</h3>
+                <p class="problem">Aplicación de escritorio para que los institutos registren retrasos del alumnado, gestionen cursos y envíen avisos por email a las familias. Instalador EXE incluido.</p>
+                <div class="tech">
+                    <span>Java 17</span><span>Swing</span><span>MariaDB</span><span>Maven</span><span>GitHub Actions</span>
+                </div>
+                <p class="learn"><strong>Qué aprendí:</strong> Desarrollo de escritorio con Swing, diseño de esquema SQL (tablas, vistas, procedimientos), integración SMTP y CI/CD con GitHub Actions para generar instaladores automáticamente.</p>
+                <a class="link" href="https://github.com/whj2006/Sistema_control_tardanza" target="_blank">Ver código →</a>
+            </div>
+
+            <!-- Tower Defense -->
+            <div class="card">
+                <span class="badge wip">En desarrollo</span>
+                <h3>Tower Defense</h3>
+                <p class="problem">Juego de tower defense desarrollado en Java como proyecto personal para profundizar en programación orientada a objetos y gráficos 2D.</p>
+                <div class="tech">
+                    <span>Java</span><span>POO</span><span>Gráficos 2D</span>
+                </div>
+                <p class="learn"><strong>Qué estoy aprendiendo:</strong> Bucle de juego, detección de colisiones, gestión de estados, pathfinding y renderizado por canvas.</p>
+                <a class="link" href="#" style="color:#666;cursor:default;">Próximamente →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Hejun Wang · Hecho con HTML y CSS
+    </footer>
+
+</body>
+</html>
