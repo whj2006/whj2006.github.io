@@ -5,135 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hejun Wang</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>H</text></svg>">
-    <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@300;400;500&display=swap">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-            background: #faf9f7;
-            color: #1a1a1a;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+        :root {
+            --bg: #0a0a0a;
+            --text: #ededed;
+            --text2: #888;
+            --border: #222;
         }
 
-        a { color: #2d5a3d; text-decoration: underline; text-underline-offset: 3px; }
-        a:hover { opacity: 0.7; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            font-weight: 300;
+        }
+
+        a { color: var(--text); text-decoration: none; border-bottom: 1px solid #444; transition: border-color 0.2s; }
+        a:hover { border-bottom-color: var(--text); }
 
         .container {
-            max-width: 720px;
+            max-width: 680px;
             margin: 0 auto;
             padding: 0 32px;
         }
 
+        /* Nav */
+        nav {
+            padding: 32px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text2);
+        }
+
+        nav .name { color: var(--text); font-weight: 500; }
+        nav .right { display: flex; gap: 24px; }
+        nav a { border: none; color: var(--text2); }
+        nav a:hover { color: var(--text); }
+
         /* Hero */
-        header {
-            padding: 100px 0 60px;
-            border-bottom: 1px solid #e5e3de;
+        .hero {
+            padding: 120px 0 100px;
         }
 
-        header .name {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 24px;
-            font-weight: 500;
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            margin-bottom: 32px;
         }
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
+        .hero h1 em {
+            font-style: italic;
+            font-weight: 400;
         }
 
-        header p {
+        .hero p {
             font-size: 1.1rem;
-            color: #555;
-            max-width: 480px;
+            color: var(--text2);
+            max-width: 440px;
         }
 
         /* Projects */
         .projects {
-            padding: 60px 0;
+            padding-bottom: 120px;
         }
 
         .project {
-            padding: 40px 0;
-            border-bottom: 1px solid #e5e3de;
+            padding: 64px 0;
+            border-top: 1px solid var(--border);
         }
 
-        .project:last-child { border-bottom: none; }
+        .project:last-child { border-bottom: 1px solid var(--border); }
 
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 12px;
+        .project-num {
+            font-size: 0.8rem;
+            color: var(--text2);
+            margin-bottom: 16px;
+            font-family: 'Fraunces', serif;
+            font-style: italic;
         }
 
         .project h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 16px;
             letter-spacing: -0.01em;
         }
 
-        .project .status {
-            font-size: 0.8rem;
-            color: #666;
-            font-weight: 500;
-        }
-
-        .project .status.done { color: #2d5a3d; }
-        .project .status.wip { color: #b8860b; }
-
         .project .desc {
-            color: #555;
-            margin-bottom: 20px;
+            color: var(--text2);
+            margin-bottom: 32px;
             font-size: 1rem;
         }
 
         .project img {
             width: 100%;
-            border-radius: 6px;
-            border: 1px solid #e5e3de;
-            margin-bottom: 20px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
         }
+
+        .project img:last-of-type { margin-bottom: 32px; }
 
         .project .meta {
             display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 0.88rem;
-            color: #666;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 0.85rem;
+            color: var(--text2);
         }
 
-        .project .meta strong {
-            color: #1a1a1a;
-            font-weight: 500;
+        .project .tech {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
         }
 
         /* Footer */
         footer {
-            padding: 40px 0;
-            border-top: 1px solid #e5e3de;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        footer .links {
-            display: flex;
-            gap: 20px;
+            padding: 48px 0;
+            text-align: center;
+            color: var(--text2);
+            font-size: 0.85rem;
         }
 
         @media (max-width: 600px) {
-            header { padding: 60px 0 40px; }
-            header h1 { font-size: 2rem; }
-            .project-header { flex-direction: column; gap: 4px; }
-            footer { flex-direction: column; gap: 16px; text-align: center; }
+            .hero { padding: 60px 0; }
+            .project { padding: 40px 0; }
+            .project .meta { flex-direction: column; gap: 8px; }
         }
     </style>
 </head>
@@ -141,62 +149,57 @@
 
 <div class="container">
 
-    <header>
-        <div class="name">Hejun Wang</div>
-        <h1>Estudiante de Desarrollo de Aplicaciones.</h1>
-        <p>Construyo aplicaciones de escritorio en Java y webs con HTML, CSS y JavaScript.</p>
-    </header>
+    <nav>
+        <div class="name">HW</div>
+        <div class="right">
+            <a href="https://github.com/whj2006" target="_blank">GitHub</a>
+            <a href="mailto:whj2006@users.noreply.github.com">Email</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Desarrollo aplicaciones que <em>resuelven problemas</em> reales.</h1>
+        <p>Soy Hejun, estudiante de Desarrollo de Aplicaciones. Trabajo con Java para escritorio y HTML, CSS, JavaScript para web.</p>
+    </div>
 
     <section class="projects">
 
         <div class="project">
-            <div class="project-header">
-                <h2>TrendHub</h2>
-                <span class="status done">Completado</span>
-            </div>
-            <p class="desc">Web de recomendaciones de música, juegos, series, anime y películas. Buscador, filtros por género y año, y soporte bilingüe ES/EN.</p>
+            <div class="project-num">01 — Completado</div>
+            <h2>TrendHub</h2>
+            <p class="desc">Plataforma de recomendaciones de música, juegos, series, anime y películas. Con buscador, filtros por género y año, y soporte bilingüe ES/EN.</p>
             <img src="trendhub-home-clean.png" alt="TrendHub - Página principal">
             <img src="trendhub-games-clean.png" alt="TrendHub - Juegos">
             <div class="meta">
-                <span><strong>Tecnologías:</strong> HTML, CSS, JavaScript, i18n</span>
-                <span><strong>Aprendizaje:</strong> CSS Grid, DOM, responsive, internacionalización</span>
+                <span class="tech">HTML · CSS · JavaScript · i18n</span>
+                <a href="https://github.com/whj2006/trendhub" target="_blank">Ver código</a>
             </div>
-            <p style="margin-top:12px;"><a href="https://github.com/whj2006/trendhub" target="_blank">Ver código en GitHub</a></p>
         </div>
 
         <div class="project">
-            <div class="project-header">
-                <h2>Control de Tardanzas</h2>
-                <span class="status done">Completado</span>
-            </div>
+            <div class="project-num">02 — Completado</div>
+            <h2>Control de Tardanzas</h2>
             <p class="desc">Aplicación de escritorio para institutos: registro de retrasos, gestión de alumnos y cursos, envío de avisos por email a las familias. Instalador EXE incluido.</p>
             <div class="meta">
-                <span><strong>Tecnologías:</strong> Java 17, Swing, MariaDB, Maven, GitHub Actions</span>
-                <span><strong>Aprendizaje:</strong> Escritorio, SQL, SMTP, CI/CD</span>
+                <span class="tech">Java 17 · Swing · MariaDB · Maven · CI/CD</span>
+                <a href="https://github.com/whj2006/Sistema_control_tardanza" target="_blank">Ver código</a>
             </div>
-            <p style="margin-top:12px;"><a href="https://github.com/whj2006/Sistema_control_tardanza" target="_blank">Ver código en GitHub</a></p>
         </div>
 
         <div class="project">
-            <div class="project-header">
-                <h2>Tower Defense</h2>
-                <span class="status wip">En desarrollo</span>
-            </div>
-            <p class="desc">Juego de tower defense en Java como proyecto personal para profundizar en POO y gráficos 2D.</p>
+            <div class="project-num">03 — En desarrollo</div>
+            <h2>Tower Defense</h2>
+            <p class="desc">Juego de tower defense en Java como proyecto personal para profundizar en programación orientada a objetos y gráficos 2D.</p>
             <div class="meta">
-                <span><strong>Tecnologías:</strong> Java, POO, Gráficos 2D</span>
-                <span><strong>Aprendizaje:</strong> Bucle de juego, colisiones, pathfinding</span>
+                <span class="tech">Java · POO · Gráficos 2D</span>
+                <span>Próximamente</span>
             </div>
         </div>
 
     </section>
 
     <footer>
-        <span>© 2026 Hejun Wang</span>
-        <div class="links">
-            <a href="https://github.com/whj2006" target="_blank">GitHub</a>
-            <a href="mailto:whj2006@users.noreply.github.com">Email</a>
-        </div>
+        © 2026 Hejun Wang
     </footer>
 
 </div>
