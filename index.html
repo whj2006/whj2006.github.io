@@ -3,206 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hejun Wang - Portfolio</title>
+    <title>Hejun Wang — Desarrollador</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: #0f0f1a;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-        a { color: #e94560; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 80px 20px 60px;
+        :root {
+            --bg: #0a0a0f;
+            --surface: #12121a;
+            --surface2: #1a1a25;
+            --border: #252535;
+            --text: #e8e8ed;
+            --text2: #8b8b9e;
+            --accent: #6c5ce7;
+            --accent2: #00d2ff;
+            --green: #00b894;
+            --amber: #fdcb6e;
         }
-        .hero h1 {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 10px;
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
-        .hero h1 span { color: #e94560; }
-        .hero p {
-            font-size: 1.15rem;
-            color: #999;
-            max-width: 500px;
+
+        a { color: inherit; text-decoration: none; }
+
+        /* Background glow */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(108,92,231,0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 900px;
             margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
         }
-        .hero .social {
-            margin-top: 25px;
+
+        /* === Hero === */
+        .hero {
+            padding: 100px 0 60px;
         }
-        .hero .social a {
-            display: inline-block;
-            margin: 0 8px;
-            padding: 8px 20px;
-            border: 1px solid #e94560;
-            border-radius: 25px;
+
+        .hero .greeting {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: var(--text2);
+            max-width: 520px;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .hero .links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .hero .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
             font-size: 0.9rem;
+            font-weight: 500;
             transition: all 0.2s;
         }
-        .hero .social a:hover {
-            background: #e94560;
-            color: #fff;
-            text-decoration: none;
-        }
 
-        /* Projects */
-        .projects {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px 20px 60px;
-        }
-        .projects h2 {
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 40px;
+        .btn-primary {
+            background: var(--accent);
             color: #fff;
         }
-        .projects h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: #e94560;
-            margin: 10px auto 0;
-            border-radius: 2px;
+        .btn-primary:hover { background: #5a4bd1; transform: translateY(-1px); }
+
+        .btn-ghost {
+            border: 1px solid var(--border);
+            color: var(--text2);
+        }
+        .btn-ghost:hover { border-color: var(--accent); color: var(--text); }
+
+        /* === Section === */
+        section {
+            padding: 40px 0;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text2);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
         }
 
-        .card {
-            background: #1a1a2e;
-            border-radius: 15px;
+        /* === Projects === */
+        .project {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             padding: 28px;
-            border: 1px solid #2a2a4a;
-            transition: transform 0.2s, border-color 0.2s;
+            margin-bottom: 16px;
+            transition: all 0.2s;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #e94560;
+
+        .project:hover {
+            border-color: #353550;
+            transform: translateY(-2px);
         }
-        .card .badge {
-            display: inline-block;
-            padding: 3px 12px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: bold;
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 12px;
         }
-        .badge.done { background: #1e4620; color: #4ade80; }
-        .badge.wip { background: #422006; color: #fbbf24; }
 
-        .card h3 {
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 8px;
+        .project h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
-        .card .problem {
-            color: #aaa;
-            font-size: 0.92rem;
-            margin-bottom: 15px;
+
+        .status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
         }
-        .card .tech {
-            margin-bottom: 15px;
+        .status.done { background: rgba(0,184,148,0.12); color: var(--green); }
+        .status.wip { background: rgba(253,203,110,0.12); color: var(--amber); }
+
+        .project .desc {
+            color: var(--text2);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
         }
-        .card .tech span {
-            display: inline-block;
-            padding: 3px 10px;
-            margin: 0 5px 5px 0;
-            background: #2a2a4a;
-            border-radius: 12px;
-            font-size: 0.78rem;
-            color: #bbb;
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
         }
-        .card .learn {
+
+        .tech-stack span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text2);
+        }
+
+        .project .learn {
             font-size: 0.88rem;
-            color: #888;
-            border-top: 1px solid #2a2a4a;
-            padding-top: 12px;
-            margin-top: 5px;
-        }
-        .card .learn strong { color: #ccc; }
-        .card .link {
-            display: inline-block;
-            margin-top: 12px;
-            font-size: 0.9rem;
-            font-weight: bold;
+            color: var(--text2);
+            border-top: 1px solid var(--border);
+            padding-top: 14px;
+            margin-bottom: 14px;
         }
 
+        .project .learn strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .project .view-link {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+        .project .view-link:hover { text-decoration: underline; }
+        .project .view-link.disabled { color: var(--text2); pointer-events: none; }
+
+        /* === Footer === */
         footer {
+            margin-top: 60px;
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
             text-align: center;
-            padding: 30px;
-            color: #555;
+            color: var(--text2);
             font-size: 0.85rem;
-            border-top: 1px solid #1a1a2e;
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-        <h1>Hejun <span>Wang</span></h1>
-        <p>Estudiante de Desarrollo de Aplicaciones — me gusta construir cosas útiles, tanto para web como de escritorio.</p>
-        <div class="social">
-            <a href="https://github.com/whj2006" target="_blank">GitHub</a>
-            <a href="mailto:whj2006@users.noreply.github.com">Email</a>
+<div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="greeting">// hola, soy</div>
+        <h1>Hejun <span class="gradient">Wang</span></h1>
+        <p class="tagline">Estudiante de Desarrollo de Aplicaciones. Construyo aplicaciones de escritorio en Java y webs con HTML, CSS y JavaScript.</p>
+        <div class="links">
+            <a href="https://github.com/whj2006" target="_blank" class="btn-primary">GitHub →</a>
+            <a href="mailto:whj2006@users.noreply.github.com" class="btn-ghost">Email</a>
         </div>
-    </section>
+    </div>
 
-    <section class="projects">
-        <h2>Proyectos</h2>
-        <div class="grid">
+    <!-- Projects -->
+    <section>
+        <div class="section-label">// proyectos</div>
 
-            <!-- TrendHub -->
-            <div class="card">
-                <span class="badge done">Completado</span>
+        <!-- TrendHub -->
+        <div class="project">
+            <div class="project-top">
                 <h3>TrendHub</h3>
-                <p class="problem">Plataforma de recomendaciones de música, juegos, series, anime y películas. Buscador, filtros por género y año, y soporte bilingüe ES/EN.</p>
-                <div class="tech">
-                    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>i18n</span>
-                </div>
-                <p class="learn"><strong>Qué aprendí:</strong> Maquetación con CSS Grid, manipulación del DOM, diseño responsive y sistema de internacionalización desde cero.</p>
-                <a class="link" href="https://github.com/whj2006/trendhub" target="_blank">Ver código →</a>
+                <span class="status done">COMPLETADO</span>
             </div>
+            <p class="desc">Web de recomendaciones de música, juegos, series, anime y películas. Con buscador, filtros por género y año, y soporte bilingüe ES/EN.</p>
+            <div class="tech-stack">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>i18n</span>
+            </div>
+            <p class="learn"><strong>Qué aprendí:</strong> Maquetación con CSS Grid, manipulación del DOM, diseño responsive y un sistema de internacionalización construido desde cero.</p>
+            <a href="https://github.com/whj2006/trendhub" target="_blank" class="view-link">Ver código →</a>
+        </div>
 
-            <!-- Control de Tardanzas -->
-            <div class="card">
-                <span class="badge done">Completado</span>
+        <!-- Control de Tardanzas -->
+        <div class="project">
+            <div class="project-top">
                 <h3>Control de Tardanzas</h3>
-                <p class="problem">Aplicación de escritorio para que los institutos registren retrasos del alumnado, gestionen cursos y envíen avisos por email a las familias. Instalador EXE incluido.</p>
-                <div class="tech">
-                    <span>Java 17</span><span>Swing</span><span>MariaDB</span><span>Maven</span><span>GitHub Actions</span>
-                </div>
-                <p class="learn"><strong>Qué aprendí:</strong> Desarrollo de escritorio con Swing, diseño de esquema SQL (tablas, vistas, procedimientos), integración SMTP y CI/CD con GitHub Actions para generar instaladores automáticamente.</p>
-                <a class="link" href="https://github.com/whj2006/Sistema_control_tardanza" target="_blank">Ver código →</a>
+                <span class="status done">COMPLETADO</span>
             </div>
+            <p class="desc">Aplicación de escritorio para institutos: registro de retrasos, gestión de alumnos y cursos, envío de avisos por email a las familias, con instalador EXE incluido.</p>
+            <div class="tech-stack">
+                <span>Java 17</span><span>Swing</span><span>MariaDB</span><span>Maven</span><span>GitHub Actions</span>
+            </div>
+            <p class="learn"><strong>Qué aprendí:</strong> Desarrollo de escritorio con Swing, diseño de esquema SQL (tablas, vistas, procedimientos almacenados), integración SMTP y CI/CD con GitHub Actions para generar instaladores automáticamente.</p>
+            <a href="https://github.com/whj2006/Sistema_control_tardanza" target="_blank" class="view-link">Ver código →</a>
+        </div>
 
-            <!-- Tower Defense -->
-            <div class="card">
-                <span class="badge wip">En desarrollo</span>
+        <!-- Tower Defense -->
+        <div class="project">
+            <div class="project-top">
                 <h3>Tower Defense</h3>
-                <p class="problem">Juego de tower defense desarrollado en Java como proyecto personal para profundizar en programación orientada a objetos y gráficos 2D.</p>
-                <div class="tech">
-                    <span>Java</span><span>POO</span><span>Gráficos 2D</span>
-                </div>
-                <p class="learn"><strong>Qué estoy aprendiendo:</strong> Bucle de juego, detección de colisiones, gestión de estados, pathfinding y renderizado por canvas.</p>
-                <a class="link" href="#" style="color:#666;cursor:default;">Próximamente →</a>
+                <span class="status wip">EN DESARROLLO</span>
             </div>
-
+            <p class="desc">Juego de tower defense en Java como proyecto personal para profundizar en POO y gráficos 2D.</p>
+            <div class="tech-stack">
+                <span>Java</span><span>POO</span><span>Gráficos 2D</span>
+            </div>
+            <p class="learn"><strong>Qué estoy aprendiendo:</strong> Bucle de juego, detección de colisiones, gestión de estados, pathfinding y renderizado por canvas.</p>
+            <a class="view-link disabled">Próximamente →</a>
         </div>
     </section>
 
     <footer>
-        © 2026 Hejun Wang · Hecho con HTML y CSS
+        © 2026 Hejun Wang
     </footer>
+
+</div>
 
 </body>
 </html>
